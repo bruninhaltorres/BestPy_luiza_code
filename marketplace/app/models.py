@@ -7,6 +7,7 @@ class Vendedor(models.Model):
     nome_vendedor = models.CharField(max_length=200)
     login_vendedor = models.CharField(max_length=100)
     email_vendedor = models.EmailField()
+    senha_vendedor = models.CharField(max_length=50)
 
     def _str_(self):
         return str(self.id_vendedor)
