@@ -23,6 +23,7 @@ def login_user(request):
 
 @csrf_protect
 @require_POST
+
 def submit_login(request):
     if request.POST:
         username = request.POST.get('username')
