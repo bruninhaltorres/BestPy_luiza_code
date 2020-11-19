@@ -9,10 +9,10 @@ class MarketPlace_List(models.Model):
     preco = models.IntegerField()
     foto_produto = models.ImageField()
     ativo = models.BooleanField(default=True)
-    vendedor = models.ForeignKey(User, on_delete=models.CASCADE)
+    vendedor = models.ForeignKey(User, on_delete=models.RESTRICT)
 
     def __str__(self):
         return str(self.id_produto)
 
-    class Meta:
-        dt_table = 'produtos'    
+    #class Meta:
+        #dt_table = 'produtos'   
