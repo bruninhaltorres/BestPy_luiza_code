@@ -18,8 +18,8 @@ class Produtos(models.Model):
     qtd_estoque = models.IntegerField()
     preco = models.FloatField()
     ativo = models.BooleanField(default=True)
-    vendedor = models.ForeignKey(User, on_delete=models.RESTRICT)
-    #foto_produto = models.ImageField()
+    vendedor = models.ForeignKey(Vendedor, on_delete=models.RESTRICT, null=True, blank=True)
+    # foto_produto = models.ImageField(default=None)
 
     def __str__(self):
         return str(self.id_produto)

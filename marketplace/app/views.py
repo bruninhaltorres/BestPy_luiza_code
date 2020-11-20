@@ -7,6 +7,27 @@ from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages 
 from django.contrib.auth.decorators import login_required
 
+@login_required(login_url='/login/')
+def list_all(request):
+    produtos = Produtos.objects.filter(ativo=True)
+    return render(request, 'list.html', {'Produtos': produtos})
+
+def app_detail(request, id_produto):
+    produtos = Produtos.objects.get(ativo=True, id_produto = id_produto)
+    print(Produtos.id_produto)
+    return render(request, 'detail.html', {'Produto': produtos})
+
+def cadastro(request):
+    return render(request, 'cadastro.html')
+
+@login_required(login_url='/login/')
+def set_produto(request):
+    nome = request.POST.get('name')
+    print(nome)
+    estoque = request.POST.get('estoque')
+    preco = request.POST.get('preco')
+    produto = Produtos.objects.create(nome_produto=nome, qtd_estoque=estoque, preco=preco)
+    return render(request, 'index.html')
 
 @login_required(login_url='/login/')
 def index(request):
@@ -23,7 +44,6 @@ def login_user(request):
 
 @csrf_protect
 @require_POST
-
 def submit_login(request):
     if request.POST:
         username = request.POST.get('username')

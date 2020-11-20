@@ -23,6 +23,7 @@ urlpatterns = [
     path('app/all/', views.list_all),
     path('app/cadastrar/', views.cadastro),
     path('app/detail/<id_produto>/', views.app_detail),
+    path('app/cadastrar/submit/', views.set_produto),
     path('login/', views.login_user),
     path('login/submit/', views.submit_login),
     path('', views.index),
