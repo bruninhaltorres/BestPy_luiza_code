@@ -14,8 +14,8 @@ def list_all(request):
 
 def app_detail(request, id_produto):
     produtos = Produtos.objects.get(ativo=True, id_produto = id_produto)
-    print(Produtos.id_produto)
-    return render(request, 'detail.html', {'Produto': produtos})
+    print(produtos.id_produto)
+    return render(request, 'detail.html', {'Produtos': produtos})
 
 def cadastro(request):
     return render(request, 'cadastro.html')
