@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Vendedores</title>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <h1>Cadastro de Vendedores</h1>
+        <div class="form-group">
+            <label>Nome Completo:</label>
+            <input type="text" class="form-control" placeholder="" name="nome_vendedor">
+        </div>
+
+        <div class="form-group">
+            <label>E-mail:</label>
+            <input type="text" class="form-control" placeholder="" name="email_vendedor">
+        </div>
+
+        <div class="form-group">
+            <label>Nome de Uusário:</label>
+            <input type="text" class="form-control" placeholder="" name="login_vendedor">
+        </div>
+
+        <div class="form-group">
+            <label>Senha:</label>
+            <input type="password" class="form-control" placeholder="" name="senha_vendedor">
+        </div>
+        <input type="submit" value="Cadastrar Vendedor">
+    </form>
+</body>
+</html>

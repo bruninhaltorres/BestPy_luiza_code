@@ -19,9 +19,11 @@ from app import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('cadastro_produto/', include('app.urls')),
+    #path('cadastro_produto/', include('app.urls')),
     path('login/', views.login_user),
     path('login/submit/', views.submit_login),
     path('', views.index),
-    path('logout/', views.logout_user)
+    path('logout/', views.logout_user),
+    path('add_product/', views.add_product, name='add_product'),
+    path('add_user/', views.add_user, name='add_user'),
 ]

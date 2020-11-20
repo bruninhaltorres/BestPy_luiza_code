@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Produto</title>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <h1>Cadastro de Produtos</h1>
+        <div class="form-group">
+            <label>Nome do Produto:</label>
+            <input type="text" class="form-control" placeholder="" name="nome_produto">
+        </div>
+
+        <div class="form-group">
+            <label>Quantidade em Estoque:</label>
+            <input type="number" class="form-control" placeholder="" name="qtd_estoque" min="0">
+        </div>
+
+        <div class="form-group">
+            <label>Preço Unitário do Produto:</label>
+            <input type="number" class="form-control" placeholder="" name="preco" min="0" step="0.01">
+        </div>
+
+        <div class="form-group">
+            <label>Produto Ativo:</label>
+            <input type="checkbox" class="form-control" placeholder="" name="ativo" min="0" step="0.01">
+        </div>
+        <input type="submit" value="Cadastrar Produto">
+    </form>
+</body>
+</html>
