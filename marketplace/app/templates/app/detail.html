@@ -33,9 +33,10 @@
                 <p>{{ Produtos.nome_produto }}</p>                  
                 <p><b>Quantidade no Estoque: </b>{{ Produtos.qtd_estoque }}</p> 
                 <p><b>Preço: </b>{{ Produtos.preco }}</p>
-                    <a href="/app/cadastrar/?id={{ Produtos.id_produto }}">
-                        <button type="button" class="btn btn-primary">Alterar</button>
-                    </a>
+
+                <a href="/app/alterar/{{ Produtos.id_produto }}/">
+                  <button type="button" class="btn btn-primary">Alterar</button>
+                </a>
                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal_confirm">Inativar</button>
             </div>
         </div>

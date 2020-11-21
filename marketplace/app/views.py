@@ -36,6 +36,24 @@ def set_vendedor(request):
 def cadastro(request):
     return render(request, 'cadastro.html')
 
+def alterar(request,id_produto):
+    produto = Produtos.objects.get(id_produto=id_produto)
+    product_form = Product_Form(request.POST or None)
+    if product_form.is_valid():
+        product_form.save()
+    return render(request, 'alterar.html', {'produto': produto})
+
+def update_produto(request, id_produto):
+    nome = request.POST.get('nome_produto')
+    estoque = request.POST.get('qtd_estoque')
+    preco = request.POST.get('preco')
+    produtos = Produtos.objects.get(id_produto = id_produto)
+    produtos.ativo = False
+    produtos.save()
+    produto = Produtos.objects.create(nome_produto=nome, qtd_estoque=estoque, preco=preco)
+    return render(request, 'index.html')
+
+
 def consulta_produto(request):
     try:
         nome_produto = request.POST.get('nome_produto')    

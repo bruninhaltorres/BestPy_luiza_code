@@ -25,6 +25,8 @@ urlpatterns = [
     path('app/detail/<id_produto>/', views.app_detail),
     path('app/inativar/<id_produto>/', views.inativar),
     path('app/cadastrar/submit/', views.set_produto),
+    path('app/alterar/<int:id_produto>/', views.alterar),
+    path('app/alterar/<int:id_produto>/submit/', views.update_produto),
     path('app/all/submit/', views.consulta_produto),
     path('login/', views.login_user),
     path('login/submit/', views.submit_login),
