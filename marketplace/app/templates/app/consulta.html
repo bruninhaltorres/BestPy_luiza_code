@@ -1,0 +1,17 @@
+{% extends 'page.html' %}
+
+{% block content %}
+    <h1 class="text-center">Consultar um produto</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-8">
+                <p><b>Id:</b>{{Produtos.id_produto}}</p>
+                <p><b>Nome:</b></n>{{ Produtos.nome_produto }}</p>                  
+                <p><b>Quantidade no Estoque: </b>{{ Produtos.qtd_estoque }}</p> 
+                <p><b>Preço: </b>{{ Produtos.preco }}</p>
+            </div>
+        </div>
+    </div>
+    <br><br>
+
+{% endblock %}

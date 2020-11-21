@@ -9,16 +9,22 @@ from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='/login/')
 def list_all(request):
-    produtos = Produtos.objects.filter(ativo=True)
+    produtos = Produtos.objects.filter(ativo = True)
     return render(request, 'list.html', {'Produtos': produtos})
 
 def app_detail(request, id_produto):
-    produtos = Produtos.objects.get(ativo=True, id_produto = id_produto)
+    produtos = Produtos.objects.get(ativo = True, id_produto = id_produto)
     print(produtos.id_produto)
     return render(request, 'detail.html', {'Produtos': produtos})
 
 def cadastro(request):
     return render(request, 'cadastro.html')
+
+def consulta_produto(request):
+    nome_produto = request.POST.get('nome_produto')
+    produtos = Produtos.objects.get(nome_produto = nome_produto)
+    return render(request, 'consulta.html', {'Produtos': produtos})
+
 
 @login_required(login_url='/login/')
 def set_produto(request):
