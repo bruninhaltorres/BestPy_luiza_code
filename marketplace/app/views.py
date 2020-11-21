@@ -26,9 +26,12 @@ def cadastro(request):
     return render(request, 'cadastro.html')
 
 def consulta_produto(request):
-    nome_produto = request.POST.get('nome_produto')
-    produtos = Produtos.objects.get(nome_produto = nome_produto)
-    return render(request, 'consulta.html', {'Produtos': produtos})
+    try:
+        nome_produto = request.POST.get('nome_produto')    
+        produtos = Produtos.objects.get(nome_produto = nome_produto)
+        return render(request, 'consulta.html', {'Produtos': produtos})
+    except:
+        return render(request, 'consulta_erro.html')
 
 
 @login_required(login_url='/login/')
