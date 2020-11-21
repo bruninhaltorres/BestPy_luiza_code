@@ -1,6 +1,7 @@
 {% extends 'page.html' %}
 
 {% block content %}
+<<<<<<< HEAD
     <div class="container mt-3">
         <form enctype="multipart/form-data" action="submit/", method="POST">{% csrf_token %}
             <div class="container">
@@ -32,6 +33,21 @@
                 {% endfor %}
             </tbody>
           </table>
+=======
+    <div class="container">
+        <div class="row">
+            {% for p in Produtos %}
+                <div class="col-sm-4 col-md-6 col-lg-4">
+                    <a href="../detail/{{ p.id_produto }}">
+                        <div class="container">
+                            <p>{{ p.nome_produto }}</p> 
+                        </div>
+                    </a>
+                    <br>
+                </div>       
+            {% endfor %}
+        </div>
+>>>>>>> 2451fe35ac3cf0ada2f2775f4de797c6aaefe548
     </div>  
     </div>  
 {% endblock %}

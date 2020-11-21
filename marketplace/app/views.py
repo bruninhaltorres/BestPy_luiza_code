@@ -13,9 +13,14 @@ def list_all(request):
     return render(request, 'list.html', {'Produtos': produtos})
 
 def app_detail(request, id_produto):
-    produtos = Produtos.objects.get(ativo = True, id_produto = id_produto)
-    print(produtos.id_produto)
+    produtos = Produtos.objects.get(ativo=True, id_produto = id_produto)
     return render(request, 'detail.html', {'Produtos': produtos})
+
+def inativar(request, id_produto):
+    produtos = Produtos.objects.get(id_produto = id_produto)
+    produtos.ativo = False
+    produtos.save()
+    return render(request, 'index.html', {'Produtos': produtos})
 
 def cadastro(request):
     return render(request, 'cadastro.html')
@@ -29,7 +34,6 @@ def consulta_produto(request):
 @login_required(login_url='/login/')
 def set_produto(request):
     nome = request.POST.get('name')
-    print(nome)
     estoque = request.POST.get('estoque')
     preco = request.POST.get('preco')
     produto = Produtos.objects.create(nome_produto=nome, qtd_estoque=estoque, preco=preco)

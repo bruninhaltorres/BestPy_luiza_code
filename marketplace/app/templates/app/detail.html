@@ -9,13 +9,13 @@
       <div class="modal-content">      
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">Deseja realmente excluir?</h4>
+          <h4 class="modal-title">Deseja realmente inativar?</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>        
         <!-- Modal body -->
         <div class="modal-body text-right">
-            <a href="/pet/delete/{{ pet.id }}/">
-                <button type="button" class="btn btn-danger">EXCLUIR</button>
+            <a href="/app/inativar/{{ Produtos.id_produto }}">
+              <button type="button" class="btn btn-danger">SIM</button>
             </a>
             <button type="button" class="btn btn-default" data-dismiss="modal">CANCELAR</button>
         </div>               
@@ -33,7 +33,7 @@
                 <p>{{ Produtos.nome_produto }}</p>                  
                 <p><b>Quantidade no Estoque: </b>{{ Produtos.qtd_estoque }}</p> 
                 <p><b>Preço: </b>{{ Produtos.preco }}</p>
-                    <a href="/pet/register/?id={{ pet.id }}">
+                    <a href="/app/cadastrar/?id={{ Produtos.id_produto }}">
                         <button type="button" class="btn btn-primary">Alterar</button>
                     </a>
                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal_confirm">Inativar</button>
