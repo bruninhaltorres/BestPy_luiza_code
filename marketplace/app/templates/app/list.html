@@ -1,19 +1,37 @@
 {% extends 'page.html' %}
 
 {% block content %}
-    <div class="container">
-        <div class="row">
-            {% for p in Produtos %}
-                <div class="col-sm-4 col-md-6 col-lg-4">
-                    <a href="../detail/{{ p.id_produto }}">
-                        <div class="container">
-                            <p>{{ p.nome_produto }}</p> 
-                        </div>
-                    </a>
-                    <br>
-                </div>       
-            {% endfor %}
-        </div>
+    <div class="container mt-3">
+        <form enctype="multipart/form-data" action="submit/", method="POST">{% csrf_token %}
+            <div class="container">
+                <div class="form-group row">
+                    <label style="margin-right: 10px;">Pesquisar produto:</label>
+                    <input type="text" class="form-control col-5" style="margin-right:10px;" name="nome_produto" value="{{ Produto.nome_produto }}">
+                    <button type="submit/" class="btn btn-primary"><span class="material-icons" >search</span> Pesquisar</button>
+                </div>
+            </div>
+        </form>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome:</th>
+                <th scope="col">Visualizar:</th>
+                <th scope="col">Editar:</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+                {% for p in Produtos %}
+                <tr>
+                    <th scope="row">{{p.id_produto}}</th>
+                    <td>{{ p.nome_produto }}</td> 
+                    <td><a href="../detail/{{ p.id_produto }}"><span class="material-icons">visibility</span></a></td>
+                    <td><a href="../detail/{{ p.id_produto }}"><span class="material-icons">create</span></a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+          </table>
     </div>  
     </div>  
 {% endblock %}
