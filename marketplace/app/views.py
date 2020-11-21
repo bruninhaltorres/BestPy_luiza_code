@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import Product_Form
-from .models import Produtos
+from .models import Produtos, Vendedor
 from django.views.decorators.http import require_POST
 from django.contrib.auth import authenticate, login, logout
 from django.views.decorators.csrf import csrf_protect
@@ -21,6 +21,17 @@ def inativar(request, id_produto):
     produtos.ativo = False
     produtos.save()
     return render(request, 'index.html', {'Produtos': produtos})
+
+def register(request):
+    return render(request, 'register.html')
+
+def set_vendedor(request):
+    nome = request.POST.get('name')
+    usuario = request.POST.get('usuario')
+    email = request.POST.get('email')
+    senha = request.POST.get('senha')
+    vendedor = Vendedor.objects.create(nome_vendedor=nome, login_vendedor=usuario, email_vendedor=email, senha_vendedor=senha)
+    return render(request, 'sucess.html')
 
 def cadastro(request):
     return render(request, 'cadastro.html')

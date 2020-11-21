@@ -27,6 +27,8 @@ urlpatterns = [
     path('app/cadastrar/submit/', views.set_produto),
     path('login/', views.login_user),
     path('login/submit/', views.submit_login),
+    path('app/register/', views.register),
+    path('app/register/submit/', views.set_vendedor),
     path('', views.index),
     path('logout/', views.logout_user)
 ]

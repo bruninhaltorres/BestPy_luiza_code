@@ -1,0 +1,29 @@
+{% extends 'page.html' %}
+
+{% block content %}
+    <h1 class="text-center">Cadastre-se</h1>
+    <br>
+    <form enctype="multipart/form-data" action="submit/", method="POST">{% csrf_token %}
+        <div class="container">
+            <input type="number" class="form-control" name="Vendedor.id_vendedor" value="{{ Vendedor.id_vendedor }}" hidden>
+            <div class="form-group">
+                <label>Nome completo:</label>
+                <input type="text" class="form-control" name="name" value="{{ Vendedor.nome_vendedor }}">
+            </div>
+            <div class="form-group">
+                <label>Nome usuário:</label>
+                <input type="text"min=0 class="form-control" name="usuario" value="{{ Vendedor.login_vendedor }}">
+            </div>   
+            <div class="form-group">
+                <label>E-mail:</label>
+                <input type="e-mail" class="form-control" name="email" value="{{ Vendedor.email_vendedor }}">
+            </div>
+            <div class="form-group">
+                <label>Senha:</label>
+                <input type="password" class="form-control" name="senha" value="{{ Vendedor.senha_vendedor }}">
+            </div>
+            <button type="submit/" class="btn btn-primary">Cadastrar</button>
+        </div>
+      </form>
+      <br>
+{% endblock %}

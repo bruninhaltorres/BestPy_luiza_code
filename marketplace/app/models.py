@@ -9,8 +9,8 @@ class Vendedor(models.Model):
     email_vendedor = models.EmailField()
     senha_vendedor = models.CharField(max_length=50, default=None)
 
-    def _str_(self):
-        return str(self.id_vendedor)
+    def __str__(self):
+        return self.nome_vendedor
 
 class Produtos(models.Model):
     id_produto = models.AutoField(primary_key=True, null=False, unique=True)
